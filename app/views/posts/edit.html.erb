@@ -1,4 +1,4 @@
-<h4>create a new post</h4>
+<h5>update post</h5>
 
 <% if @post.errors.any? %>
   <div class='alert alert-error'>
@@ -13,5 +13,5 @@
   <%= f.label :url %>
   <%= f.text_field :url %>
   </br>
-  <%= f.submit 'create post', class: 'btn' %>
+  <%= f.submit 'update post', class: 'btn' %>
 <% end %>

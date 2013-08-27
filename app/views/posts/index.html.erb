@@ -5,8 +5,11 @@
 <% @posts.each do |post| %>
   <li>
     <%= link_to post.title, post %>
-      <small>[<%= link_to 'link', fix_url(post.url) %>]</small> posted at
-      <%= display_datetime(post.created_at) %>
+      <small>
+        [<%= link_to 'posted url', fix_url(post.url) %>] posted at
+        <%= display_datetime(post.created_at) %> |
+        <%= link_to 'edit', edit_post_path(post) %>
+      </small>
   </li>
 <% end %>
 </ul>
