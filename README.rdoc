@@ -10,7 +10,19 @@
 
 1. Instantiate this directory as a git repository with "git init".
 2. Go to github.com, create a new repository, then follow instructions on how to add a remote repository that links to github.
-3. Remember, you have to "git add" changes to ready it for a commit, then "git commit" to commit those changes locally, then "git push origin master" to push it to the remote "origin" repository, which is the previously created github.com repository.
+3. Remember, you have to "git add" changes to ready it for a commit,
+  $ git add *.*
+
+then "git commit" to commit those changes locally,
+  $ git commit -m 'Add all the octocat txt files'
+
+< if first time then >
+  $ git remote add origin https://github.com/{ #name }.git
+
+then "git push origin master" to push it to the remote "origin" repository,
+  $ git push -u origin master
+
+which is the previously created github.com repository.
 
 == Deploying to Heroku
 
