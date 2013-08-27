@@ -1,9 +1,12 @@
 <h3>Welcome!</h3>
 
 <p>Here are all the posts:</p>
-
 <ul>
 <% @posts.each do |post| %>
-  <li><%= link_to post.title, post %></li>
+  <li>
+    <%= link_to post.title, post %>
+      <small>[<%= link_to 'link', fix_url(post.url) %>]</small> posted at
+      <%= display_datetime(post.created_at) %>
+  </li>
 <% end %>
 </ul>

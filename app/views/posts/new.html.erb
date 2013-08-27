@@ -1,0 +1,50 @@
+<h4>create a new post object:</h4>
+
+<h5>model backed form helpers</h5>
+<% if @post.errors.any? %>
+  <div class='alert alert-error'>
+    <%= @post.errors.full_messages.join(',') %>
+  </div>
+<% end %>
+
+<%= form_for @post do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  </br>
+  <%= f.label :url %>
+  <%= f.text_field :url %>
+  </br>
+  <%= f.submit 'create post' %>
+<% end %>
+
+<%-################################################## -%>
+  <% if false %>
+  <%-# different ways to implement forms ## -%>
+
+  <%-# never code forms with pure html in rails ## -%>
+  <h5>HTML form</h5>
+  <form action='/posts' method='post'>
+    Title:
+    <input type='text' name='title'>
+  <br/>
+    URL:
+    <input type='text' name='url'>
+  <br/>
+
+    <input type='submit'>
+  </form>
+
+  <%-#  translates code into html and benefit over pure html ## -%>
+  <%-# is it provides auth_token which helps protect against ## -%>
+  <%-# cross site request forgeries .. no model to work w/ ## -%>
+  <h5>non-model backed form helpers</h5>
+  <%= form_tag '/posts' do %>
+    <%= label_tag :title %>
+    <%= text_field_tag :title %>
+  <br/>
+    <%= label_tag :url %>
+    <%= text_field_tag :url %>
+  <br/>
+    <%= submit_tag "Create Post" %>
+  <% end %>
+<% end %>
