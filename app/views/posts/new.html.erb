@@ -1,17 +1,4 @@
 <h4>create a new post</h4>
 
-<% if @post.errors.any? %>
-  <div class='alert alert-error'>
-    <%= @post.errors.full_messages.join(',') %>
-  </div>
-<% end %>
+<%= render 'form' %>
 
-<%= form_for @post do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
-  </br>
-  <%= f.label :url %>
-  <%= f.text_field :url %>
-  </br>
-  <%= f.submit 'create post', class: 'btn' %>
-<% end %>
