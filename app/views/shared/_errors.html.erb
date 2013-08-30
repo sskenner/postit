@@ -1,15 +1,9 @@
 <% if obj.errors.any? %>
-  <div class='alert alert-error'>
-    <%= obj.errors.full_messages.join(',') %>
-  </div>
-<% end %>
-
-<% if obj.errors.any? %>
     <div class="row">
       <div class='alert alert-error span8'>
         <h5>please fix the following errors:</h5>
         <ul>
-        <%= obj.errors.full_messages.each do |msg| %>
+        <% obj.errors.full_messages.each do |msg| %>
           <li><%= msg %></li>
         <% end %>
         </ul>
