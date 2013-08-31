@@ -1,0 +1,13 @@
+<h5>register</h5>
+
+<%= render 'shared/errors', obj: @user %>
+
+<%= form_for @user do |f| %>
+  <%= f.label :username %>
+  <%= f.text_field :username %>
+</br>
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+</br>
+  <%= f.submit 'register', class: 'btn btn-primary' %>
+<% end %>
