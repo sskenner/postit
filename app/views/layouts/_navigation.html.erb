@@ -2,13 +2,28 @@
   <li>
     <%= link_to "postit!", root_path, :class => 'brand' %>
   </li>
-  <li>
-    <em><%= link_to 'new post', new_post_path %></em>
-  </li>
-</br>
-  <li>
-    <em><%= link_to 'new category', new_category_path %></em>
-  </li>
 
+  <% if logged_in? %>
+    <li>
+      welcome <%= current_user.username %>
+    </li>
+    <li>
+      <%= link_to 'new post', new_post_path %>
+    </li>
+    <li>
+      <%= link_to 'new category', new_category_path %>
+    </li>
+    <li>
+      <%= link_to 'logout', logout_path %>
+    </li>
+  <% else %>
+    <li>
+      <%= link_to 'register', register_path %>
+    </li>
+    <li>
+        <%= link_to 'login', login_path %>
+    </li>
+  <% end %>
+</br>
 </ul>
 
