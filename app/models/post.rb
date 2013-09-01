@@ -7,11 +7,17 @@ class Post < ActiveRecord::Base
 
   validates :title, presence: true
 
+  after_validation :generate_slug
+
   def total_votes
     self.votes.where(vote: true).size - self.votes.where(vote: false).size
   end
 
   def generate_slug
-    self.slug = self.title.fgsub(" ", "-").downcase
+    self.slug = self.title.gsub(" ", "-").downcase
+  end
+
+  def to_param
+    self.slug
   end
 end

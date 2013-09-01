@@ -10,7 +10,7 @@
       <%= link_to '-', vote_post_path(post, vote: false), method: 'post', remote: true %>
 
     )
-    <%= link_to post.title, post %>
+    <%= link_to post.title, post_path(post) %>
       <small>
         [<%= link_to 'posted url', fix_url(post.url) %>] posted at
         <%= display_datetime(post.created_at) %> |
