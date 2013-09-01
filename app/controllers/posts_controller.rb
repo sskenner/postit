@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:show, :edit, :update]
-  before_action :require_user, only: [:new, :create, :edit, :update]
+  before_action :set_post, only: [:show, :edit, :update, :vote]
+  before_action :require_user, only: [:new, :create, :edit, :update, :vote]
+  before_action :require_creator, only: [:edit, :update]
 
   def index
     @posts = Post.all
@@ -16,6 +17,7 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
+    @post.creator = current_user
 
     if @post.save
       flash[:notice] = "you created a new post"
@@ -38,6 +40,13 @@ class PostsController < ApplicationController
     end
   end
 
+  def vote
+    Vote.create(voteable: @post, creator: current_user, vote: params[:vote])
+    flash[:notice] = 'your vote was counted'
+    redirect_to :back
+  end
+
+
   private
 
   def post_params
@@ -46,5 +55,9 @@ class PostsController < ApplicationController
 
   def set_post
     @post = Post.find(params[:id])
+  end
+
+  def require_creator
+    access_denied unless @post.creator == current_user
   end
 end
