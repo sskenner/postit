@@ -10,4 +10,8 @@ class Post < ActiveRecord::Base
   def total_votes
     self.votes.where(vote: true).size - self.votes.where(vote: false).size
   end
+
+  def generate_slug
+    self.slug = self.title.fgsub(" ", "-").downcase
+  end
 end
