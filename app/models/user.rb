@@ -34,7 +34,7 @@ class User < ActiveRecord::Base
 
     msg = "please input the pin to continue login: #{self.pin}"
     account = client.account
-    message = account.sms.messages.create({:from => '+13474484110', :to => self.phone, :body => msg })
+    message = account.sms.messages.create({:from => '+13474484110', :to => "#{self.phone}", :body => msg })
   end
 
   def admin?
