@@ -1,16 +1,27 @@
 <h5>register</h5>
 
-<%= render 'shared/errors', obj: @user %>
-
-<%= form_for @user do |f| %>
-  <%= f.label :username %>
-  <%= f.text_field :username %>
-</br>
-  <%= f.label :password %>
-  <%= f.password_field :password %>
-</br>
-<%= f.label :time_zone %>
-<%= f.time_zone_select :time_zone, ActiveSupport::TimeZone.us_zones %>
-</br>
-  <%= f.submit 'register', class: 'btn btn-primary' %>
-<% end %>
+<div class='well'>
+  <%= form_for @user do |f| %>
+  <%= render 'shared/errors', obj: @user %>
+  <div class='control-group'>
+    <%= f.label :username %>
+    <%= f.text_field :username %>
+  </div>
+  <div class='control-group'>
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+  </div>
+  <div class='control-group'>
+    <%= f.label :phone, "phone number <small>* for 2 factor authorization *</small>".html_safe %>
+    <%= f.text_field :phone, maxlength: 10 %>
+    <%= link_to '#', id: 'two_factor_phone' do %>
+      <i class='icon-question-sign'></i>
+    <% end %>
+  </div>
+  <div class='control-group'>
+    <%= f.label :time_zone %>
+    <%= f.time_zone_select :time_zone, ActiveSupport::TimeZone.us_zones %>
+  </div>
+    <%= f.submit 'register', class: 'btn btn-primary' %>
+  <% end %>
+</div>

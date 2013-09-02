@@ -1,0 +1,15 @@
+<%#= render 'shared/content_title', title: 'enter your pin to log in' %>
+
+<p>
+  your account is locked. you will receive a text message with a pin number.
+  enter the pin number to unlock your account and proceed with login.
+</p>
+<div class='well'>
+  <%= form_tag '/pin' do %>
+    <div class='control-group'>
+      <%= label_tag :pin, "enter your pin to log in" %>
+      <%= text_field_tag :pin, params[:pin] || '' %>
+    </div>
+    <%= submit_tag "unlock your account", class: 'btn btn-success' %>
+  <% end %>
+</div>
