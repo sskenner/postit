@@ -1,14 +1,22 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :vote]
   before_action :require_user, only: [:new, :create, :edit, :update, :vote]
-  before_action :require_creator, only: [:edit, :update]
+  before_action :require_creator_or_admin, only: [:edit, :update]
 
   def index
     @posts = Post.all
+
+    respond_to do |format|
+      format.html
+      format.json { render json: @posts }
+    end
   end
 
   def show
-    @comment = Comment.new
+    respond_to do  |format|
+      format.html{ @comment = Comment.new }
+      format.json { render json: @post }
+    end
   end
 
   def new
@@ -41,7 +49,8 @@ class PostsController < ApplicationController
   end
 
   def vote
-    Vote.create(voteable: @post, creator: current_user, vote: params[:vote])
+    @vote = Vote.new(voteable: @post, creator: current_user, vote: params[:vote])
+    @vote.save
 
     respond_to do |format|
       format.html do
@@ -49,8 +58,7 @@ class PostsController < ApplicationController
         redirect_to :back
       end
 
-      format.js
-
+      format.js # render /views/posts/vote.js.erb
     end
   end
 
@@ -65,7 +73,7 @@ class PostsController < ApplicationController
     @post = Post.find_by(slug: params[:id])
   end
 
-  def require_creator
-    access_denied unless @post.creator == current_user
+  def require_creator_or_admin
+    access_denied unless logged_in? && (@post.creator == current_user || current_user.admin?)
   end
 end

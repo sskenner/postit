@@ -12,7 +12,7 @@
     <% end %>
   <% end %>
 
-  <h4>commnets:</h4>
+  <h4>comments:</h4>
   <ol>
     <% @post.comments.each do |comment| %>
       <li><%= comment.body %> by <%= comment.creator.username %></li>
