@@ -1,11 +1,15 @@
 <h5>login</h5>
 
-<%= form_tag '/login' do %>
-  <%= label_tag :username %>
-  <%= text_field_tag :username %>
-</br>
-  <%= label_tag :password %>
-  <%= password_field_tag :password %>
-</br>
-  <%= submit_tag 'login', class: 'btn btn-primary' %>
-<% end %>
+<div class='well'>
+  <%= form_tag '/login' do %>
+  <div class='control-group'>
+    <%= label_tag :username %>
+    <%= text_field_tag :username %>
+  </div>
+  <div class='control-group'>
+    <%= label_tag :password %>
+    <%= password_field_tag :password %>
+  </div>
+    <%= submit_tag 'login', class: 'btn btn-primary' %>
+  <% end %>
+</div>

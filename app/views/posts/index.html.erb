@@ -1,14 +1,15 @@
 <h3>Welcome!</h3>
 
 <p>Here are all the posts:</p>
+
+
 <ul>
 <% @posts.each do |post| %>
-  <li>
+  <div class='well'>
     (
       <%= link_to '+', vote_post_path(post, vote: true), method: 'post', remote: true %>
       <span id="post_<%= post.id %>_votes"><%= post.total_votes %></span>
       <%= link_to '-', vote_post_path(post, vote: false), method: 'post', remote: true %>
-
     )
     <%= link_to post.title, post_path(post) %>
       <small>
@@ -16,6 +17,6 @@
         <%= display_datetime(post.created_at) %> |
         <%= link_to 'edit', edit_post_path(post) %>
       </small>
-  </li>
+  </div>
 <% end %>
 </ul>
