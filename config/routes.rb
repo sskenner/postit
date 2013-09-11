@@ -20,5 +20,5 @@ PostitTemplate::Application.routes.draw do
     end
   end
 
-  resources :categories, only: [:new, :create]
+  resources :categories, only: [:new, :create, :show]
 end

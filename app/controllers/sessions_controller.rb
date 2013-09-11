@@ -7,14 +7,14 @@ class SessionsController < ApplicationController
   def create
     user = User.find_by(username: params[:username])
     if user && user.authenticate(params[:password])
-      if user.two_factor_auth?
-        session[:two_factor] = true
-        user.generate_pin!
-        user.send_pin_to_twilio
-        redirect_to pin_path
-      else
+      #if user.two_factor_auth?
+        #session[:two_factor] = true
+        #user.generate_pin!
+        #user.send_pin_to_twilio
+        #redirect_to pin_path
+      #else
         login_user!(user)
-      end
+      #end
     else
       flash[:error] = 'sorry, something is wrong with your username or password'
       redirect_to login_path

@@ -2,6 +2,7 @@
 
 <p>Here are all the posts:</p>
 
+#
 
 <ul>
 <% @posts.each do |post| %>
@@ -13,6 +14,9 @@
     )
     <%= link_to post.title, post_path(post) %>
       <small>
+        <% post.categories.each do |c| %>
+         <%= "category: #{c.name}" %>
+        <% end %>
         [<%= link_to 'posted url', fix_url(post.url) %>] posted at
         <%= display_datetime(post.created_at) %> |
         <%= link_to 'edit', edit_post_path(post) %>
