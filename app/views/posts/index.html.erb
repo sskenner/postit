@@ -1,9 +1,8 @@
 <h3>Welcome!</h3>
 
-<p>Here are all the posts:</p>
+<p>Latest posts:</p>
 
-#
-
+<hr>
 <ul>
 <% @posts.each do |post| %>
   <div class='well'>
@@ -12,11 +11,14 @@
       <span id="post_<%= post.id %>_votes"><%= post.total_votes %></span>
       <%= link_to '-', vote_post_path(post, vote: false), method: 'post', remote: true %>
     )
+    <% post.categories.each do |c| %>
+      <p class= "text-warning">
+        <%= "#{c.name}" %>
+      </p>
+    <% end %>
+
     <%= link_to post.title, post_path(post) %>
       <small>
-        <% post.categories.each do |c| %>
-         <%= "category: #{c.name}" %>
-        <% end %>
         [<%= link_to 'posted url', fix_url(post.url) %>] posted at
         <%= display_datetime(post.created_at) %> |
         <%= link_to 'edit', edit_post_path(post) %>

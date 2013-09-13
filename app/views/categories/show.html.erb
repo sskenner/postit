@@ -1,0 +1,25 @@
+<h3><%= link_to 'all posts', posts_path %><em><%= category.name %></em> </h3>
+<hr>
+<ul style='list-style: none'>
+  <%= @category.posts.each do |post| %>
+    <li>
+      <div>
+        <div class='vote_box'>
+          <%= link_to "<i class="icon-thumbs-up"></i>".html_safe, vote_post_path(post, vote: true), method: 'post', class: 'btn btn-success nav-item' %>
+          <div class='btn btn-mini nav-item'>
+            <%= post.total_votes %>
+            </br>
+            vote-o-meter
+          </div>
+          <%= link_to "<i class="icon-thumbs-down"></i>".html_safe, vote_post_path(post, vote: false), method: 'post', class: 'btn btn-warning nav-item' %>
+        </div>
+        <div class='post_box'>
+          <h4 style="text-align: right"><%= link_to post.title, post %></h4>
+          <small>posted at <%= post.created_at %></small>
+          |
+          <small><%= link_to 'edit', edit_post_path(post) %></small>
+        </div>
+      </div>
+    </li>
+  <% end %>
+</ul>

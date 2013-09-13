@@ -8,7 +8,8 @@ PostitTemplate::Application.routes.draw do
   get '/pin', to: 'sessions#pin'
   post '/pin', to: 'sessions#pin'
 
-  resources :users, only: [:create]
+  resources :users, only: [:create, :edit, :update, :show]
+
   resources :posts, except: [:destroy] do
     member do
       post 'vote'

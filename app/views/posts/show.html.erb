@@ -1,21 +1,56 @@
-<h3>looking at post entitled: <%= @post.title %></h3>
-<p>url: <%= @post.url %></p>
-<p>description: <%= @post.description %></p>
-</br>
-<p>
-  <% if logged_in? %>
+<h3 style="float: left; width: 100%"><%= @post.title %></h3>
+<hr>
+
+<div class='post_box'>
+  <ul style="line-style: none;">
+    <% @post.categories.each do |category| %>
+    <span class='badge'><%= link_to category.name, category %></span>
+    <% end %>
+  </ul>
+  <h3><%= link_to @post.url, fix_url(@post.url) %></h3>
+  </br>
+  <p>"<%= @post.description %>"</p>
+  </br>
+  <p>
+    <small>
+      <em>
+        <%= @post.creator.username %> created this post on <%= @post.created_at %>
+      </em>
+    </small>
+  </p>
+  </br>a
+</div>
+<% if logged_in? %>
+  <div class='post_box'>
     <%= render 'shared/errors', obj: @comment %>
+
     <%= form_for [@post, @comment] do |f| %>
       <%= f.text_area :body %>
       </br>
       <%= f.submit "create comment", class: 'btn btn-primary' %>
     <% end %>
-  <% end %>
+  </div>
+<% end %>
 
-  <h4>comments:</h4>
-  <ol>
-    <% @post.comments.each do |comment| %>
-      <li><%= comment.body %> by <%= comment.creator.username %></li>
-    <% end %>
-  </ol>
-</p>
+<h3 style="float: left; width: 100%">comments:</h3>
+<ul style="list-style: none; margin: 0px; padding: 0px" >
+  <% @post.comments.each do |comment| %>
+    <li>
+      <div>
+        <div class='vote_box'>
+          <%= link_to "<i class="icon-thumbs-up"></i>".html_safe, vote_post_comment_path(comment.post, comment.id, vote: true), method: 'post', class: 'btn btn-success nav-item' %>
+          <div class='btn btn-mini nav-item'>
+            <%= comment.total_votes %>
+            </br>
+            vote-o-meter
+          </div>
+          <%= link_to "<i class="icon-thumbs-down"></i>".html_safe, vote_post_comment__path(comment.post, comment, vote: false), method: 'post', class: 'btn btn-warning nav-item' %>
+        </div>
+        <div class='post_box'>
+          <%= comment.body %></br><small><em>by <%= comment.creator.username %></em></small>
+        </div>
+      </div>
+    </li>
+  <% end %>
+</ul>
+

@@ -1,4 +1,7 @@
 <h4>create a new post</h4>
 
-<%= render 'form' %>
+<hr>
+<%= render 'shared/error', obj: @post %>
+
+<%= render "layouts/postsform", obj: @post %>
 
