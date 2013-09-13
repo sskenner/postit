@@ -1,7 +1,7 @@
 <h3 style="float: left; width: 100%"><%= @post.title %></h3>
 <hr>
-
-<div class='post_box'>
+</br>
+<div class='well'>
   <ul style="line-style: none;">
     <% @post.categories.each do |category| %>
     <span class='badge'><%= link_to category.name, category %></span>
@@ -21,7 +21,7 @@
   </br>a
 </div>
 <% if logged_in? %>
-  <div class='post_box'>
+  <div class='well'>
     <%= render 'shared/errors', obj: @comment %>
 
     <%= form_for [@post, @comment] do |f| %>
@@ -38,13 +38,13 @@
     <li>
       <div>
         <div class='vote_box'>
-          <%= link_to "<i class="icon-thumbs-up"></i>".html_safe, vote_post_comment_path(comment.post, comment.id, vote: true), method: 'post', class: 'btn btn-success nav-item' %>
+          <%= link_to "<i class=\"icon-thumbs-up\"></i>".html_safe, vote_post_comment_path(comment.post, comment.id, vote: true), method: 'post', class: 'btn btn-success nav-item' %>
           <div class='btn btn-mini nav-item'>
             <%= comment.total_votes %>
             </br>
             vote-o-meter
           </div>
-          <%= link_to "<i class="icon-thumbs-down"></i>".html_safe, vote_post_comment__path(comment.post, comment, vote: false), method: 'post', class: 'btn btn-warning nav-item' %>
+          <%= link_to "<i class=\"icon-thumbs-down\"></i>".html_safe, vote_post_comment__path(comment.post, comment, vote: false), method: 'post', class: 'btn btn-warning nav-item' %>
         </div>
         <div class='post_box'>
           <%= comment.body %></br><small><em>by <%= comment.creator.username %></em></small>
