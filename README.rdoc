@@ -1,7 +1,7 @@
 This is a Reddit-like app ipostit, built with Ruby 2 and Rails 4, with all features coded from scratch without relying on any external libraries or gems. Deployed to heroku here link:http://www.ipostit-sk.herokuapp.com.
 
 
-== Features:
+== Features
 <code>Create and edit posts</code> •  
 <code>Comment and vote on posts</code> •  
 <code>Authentication</code> •  
@@ -16,7 +16,7 @@ This is a Reddit-like app ipostit, built with Ruby 2 and Rails 4, with all featu
 <code>Uses gem to extract common logic</code> •  
 <code>2-factor authentication</code> •  
 
-== Topics:
+== Topics
 <code>Relational databases</code> •  
 <code>Basic database associations: 1:M and M:M</code> •  
 <code>ActiveRecord</code> •  
