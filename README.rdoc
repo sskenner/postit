@@ -4,39 +4,39 @@ This is a Reddit-like app, built with Ruby 2 and Rails 4, with all features buil
 <code>Create and edit posts</code> •  
 <code>Comment and vote on posts</code> •  
 <code>Authentication</code> •  
-Tracks who created every comment, vote, and post
-Organize posts by category
-View and edit user profiles
-Uses roles to allow admins to edit all posts
-Uses ajax to vote
-Slugs as URLs
-Display time based on user specified time zone
-Deployed to Heroku
-Uses gem to extract common logic
-2-factor authentication
+<code>Tracks who created all comments, votes, and posts</code> •  
+<code>Organize posts by category</code> •  
+<code>View and edit user profiles</code> •  
+<code>Uses roles to allow admins to edit all posts</code> •  
+<code>Uses ajax to vote</code> •  
+<code>Slugs as URLs</code> •  
+<code>Display time based on user specified time zone</code> •  
+<code>Deployed to Heroku</code> •  
+<code>Uses gem to extract common logic</code> •  
+<code>2-factor authentication</code> •  
 
 == Topics:
-Relational databases
-Basic database associations: 1:M and M:M
-ActiveRecord
-Resourceful routing
-REST
-MVC - models, views and controllers
-Request/response processing
-Partials
-Helpers
-Filters
-Rails forms
-Validations
-Strong parameters
-Callbacks
-Authentication from scratch
-Time zones
-Simple roles
-Deployment
-Polymorphic associations
-Ajax, the Rails way
-Pretty URLs
-Building APIs
-Creating and publishing your first rubygem
-Working with Twilio
+<code>Relational databases</code> •  
+<code>Basic database associations: 1:M and M:M</code> •  
+<code>ActiveRecord</code> •  
+<code>Resourceful routing</code> •  
+<code>REST</code> •  
+<code>MVC - models, views and controllers</code> •  
+<code>Request/response processing</code> •  
+<code>Partials</code> •  
+<code>Helpers</code> •  
+<code>Filters</code> •  
+<code>Rails forms</code> •  
+<code>Validations</code> •  
+<code>Strong parameters</code> •  
+<code>Callbacks</code> •  
+<code>Authentication from scratch</code> •  
+<code>Time zones</code> •  
+<code>Simple roles</code> •  
+<code>Deployment</code> •  
+<code>Polymorphic associations</code> •  
+<code>Ajax, the Rails way</code> •  
+<code>Pretty URLs</code> •  
+<code>Building APIs</code> •  
+<code>Creating and publishing first rubygem</code> •  
+<code>Twilio integration</code>
