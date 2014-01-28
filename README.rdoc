@@ -1,4 +1,5 @@
-This is a Reddit-like app "ipostit", built with Ruby 2 and Rails 4, with all features coded from scratch without relying on any external libraries or gems. Deployed to heroku <a href="http://ipostit-sk.herokuapp.com/">here</a>.
+This is a Reddit-like app "ipostit", built with Ruby 2 and Rails 4, with all features coded from scratch without relying on any external libraries or gems. Deployed to heroku <a href="https://www.ipostit-sk.herokuapp.com/">here</a>.
+
 
 == Features:
 <code>Create and edit posts</code> •  
