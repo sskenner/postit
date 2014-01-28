@@ -1,9 +1,9 @@
 This is a Reddit-like app, built with Ruby 2 and Rails 4, with all features built from scratch without relying on any external libraries or gems.
 
 == Features:
-Create and edit posts | 
-Comment and vote on posts | 
-Authentication | 
+Create and edit posts • 
+Comment and vote on posts • 
+Authentication	• 
 Tracks who created every comment, vote, and post
 Organize posts by category
 View and edit user profiles
