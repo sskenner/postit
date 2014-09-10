@@ -1,8 +1,8 @@
 ==postit!
 
-http://sskenner.github.io/assets/1_postit_homepage.png
+Postit!, a Reddit-like app built with Ruby 2 and Rails 4, with all features coded from scratch without relying on any external libraries or gems.  The app is currently depolyed (and most likely sleeping) on heroku.
 
-This is a Reddit-like app postit!, built with Ruby 2 and Rails 4, with all features coded from scratch without relying on any external libraries or gems.  The app is currently depolyed (and most likely sleeping) on heroku.
+http://sskenner.github.io/assets/1_postit_homepage.png
 
 == Features
 
